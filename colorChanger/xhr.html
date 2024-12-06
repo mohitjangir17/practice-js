@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XHR</title>
+  </head>
+  <body></body>
+  <script>
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+
+    div.appendChild(img);
+    img.className = "img";
+    div.className = "card";
+
+    document.body.appendChild(div);
+    let ulElement = div.appendChild(document.createElement("ul"));
+
+    let requrl = "https://api.github.com/users/hiteshchoudhary";
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = () => {
+      console.log("State:", xhr.readyState);
+      if (xhr.readyState === 4) {
+        const data = JSON.parse(xhr.response || "{}");
+        console.log(data);
+        if (data) {
+          const entries = Object.entries(data);
+
+          for ([key, value] of entries) {
+            const liElement = ulElement.appendChild(
+              document.createElement("li")
+            );
+            const aElement = liElement.appendChild(document.createElement("a"));
+            const imgElement = liElement.appendChild(
+              document.createElement("img")
+            );
+            if (String(key).includes("url")) {
+              aElement.innerHTML = `${key}`;
+              aElement.href = `${value}`;
+            } else {
+              liElement.appendChild(
+                document.createTextNode(` ${key} : ${value}`)
+              );
+            }
+            // }
+          }
+        } else {
+          div.innerHTML = "No data";
+        }
+      }
+    };
+    xhr.open("GET", requrl);
+    xhr.send();
+  </script>
+</html>

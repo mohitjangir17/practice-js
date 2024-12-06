@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REST SPREAD</title>
+  </head>
+  <body>
+    <!-- <p id="help">Helpful notes will appear here</p>
+    <p>Email: <input type="text" id="email" name="email" /></p>
+    <p>Name: <input type="text" id="name" name="name" /></p>
+    <p>Age: <input type="text" id="age" name="age" /></p> -->
+  </body>
+  <script src="./index.js"></script>
+  <script>
+    // function createCounter(initialValue) {
+    //   return () => {
+    //     initialValue += 1;
+    //     return initialValue;
+    //   };
+    // }
+
+    // const counter = createCounter(0);
+    // console.log(counter()); // 1
+    // console.log(counter()); // 2
+    // console.log(counter()); // 3
+
+    // function scopeTest() {
+    //   const outer = "Outer";
+    //   function innerScopeTest() {
+    //     let inner = "Inner";
+    //     console.log(`${inner} and ${outer}`);
+    //   }
+    //   innerScopeTest();
+    //   console.log(`${inner} and ${outrer}`);
+    // }
+
+    // scopeTest();
+
+    // function printNumbers(n) {
+    //   for (var i = 1; i <= n; i++) {
+    //     setTimeout(() => console.log(i), i * 1000);
+    //   }
+    // }
+    // printNumbers(5);
+
+    // const swaparr = (a, b, ...rest) => [b, a, ...rest];
+
+    // console.log(swaparr(1, 3, 3, 6));
+
+    // const mergearr = [...arr1, ...arr2];
+    // console.log(mergearr);
+
+    // if (Math.random() > 0.5) {
+    //   var x = 1;
+    // } else {
+    //   var x = 2;
+    // }
+    // console.log(x);
+
+    // private methods with closures
+
+    // const counter = (function () {
+    //   let privateCounter = 0;
+    //   function changeBy(val) {
+    //     privateCounter += val;
+    //   }
+    //   return {
+    //     increment() {
+    //       changeBy(1);
+    //     },
+
+    //     decrement() {
+    //       changeBy(-1);
+    //     },
+
+    //     value() {
+    //       return privateCounter;
+    //     },
+    //   };
+    // })();
+
+    // console.log(counter.value()); // 0.
+
+    // counter.increment();
+    // counter.increment();
+    // console.log(counter.value()); // 2.
+
+    // counter.decrement();
+    // console.log(counter.value()); // 1.
+
+    // function mergearr(arr1, arr2) {
+    //   return [...new Set([...arr1, ...arr2])];
+    // }
+    // console.log(mergearr([1], [3, 4]));
+
+    // chaining in closures
+    // global scope
+    // const e = 10;
+    // function sum(a) {
+    //   console.log("sum 1", a);
+    //   return function (b) {
+    //     console.log("sum 2", a, b);
+    //     return function (c) {
+    //       console.log("sum 3", a, b, c);
+    //       // outer functions scope
+    //       return function (d) {
+    //         console.log("sum 4", a, b, c, d);
+    //         // local scope
+    //         return a + b + c + d + e;
+    //       };
+    //     };
+    //   };
+    // }
+    // console.log(sum(1)(2)(3)(4)); // 20
+
+    // loops using closures
+    // function showHelp(help) {
+    //   document.getElementById("help").textContent = help;
+    // }
+
+    // function setupHelp() {
+    //   var helpText = [
+    //     { id: "email", help: "Your email address" },
+    //     { id: "name", help: "Your full name" },
+    //     { id: "age", help: "Your age (you must be over 16)" },
+    //   ];
+
+    //   for (var i = 0; i < helpText.length; i++) {
+    //     // Culprit is the use of `var` on this line
+    //     var item = helpText[i];
+    //     document.getElementById(item.id).onfocus = function () {
+    //       showHelp(item.help);
+    //     };
+    //   }
+    // }
+
+    // setupHelp();
+
+    // const someArr = [4, 6, 7, 8, 2];
+
+    // function findLargestSecond(someArr) {
+    //   let largest = someArr[0];
+    //   let second = -Infinity;
+    //   for (let i = 1; i < someArr.length; i++) {
+    //     if (someArr[i] > largest) {
+    //       second = largest;
+    //       largest = someArr[i];
+    //     } else if (someArr[i] < largest && someArr[i] > second) {
+    //       second = someArr[i];
+    //     }
+    //   }
+    //   return second;
+    // }
+    // const secondLargest = findLargestSecond(someArr);
+    // console.log(secondLargest);
+
+    // Array.prototype.applyLoop = function (callback) {
+    //   // console.log(this.length);
+    //   for (let i = 0; i < this.length; i++) {
+    //     callback(this[i], i);
+    //   }
+    // };
+    // let arr = [1, 3, 7, 3, 5, 8, 4, , 5];
+    // console.log(arr.applyLoop());
+
+    // const arr = [10, -7, 5, 6, 3, 6, 10, 3, 5];
+    // let closeZero = arr[0];
+    // for (let num of arr) {
+    //   if (
+    //     Math.abs(num) < Math.abs(closeZero) ||
+    //     (Math.abs(num) === Math.abs(closeZero) &&
+    //       Math.abs(num) > Math.abs(closeZero))
+    //   ) {
+    //     closeZero = num;
+    //   }
+    // }
+
+    // console.log(closeZero);
+  </script>
+</html>

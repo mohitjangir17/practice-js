@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closures</title>
+  </head>
+  <body>
+    <button id="sky">Sky</button>
+    <button class="orange">Orange</button>
+    <script>
+      //   function init() {
+      //     let name = "Mozilla";
+      //     function displayName() {
+      //       console.log(name);
+      //     }
+      //     displayName();
+      //   }
+      //   init();
+
+      //   function makeFunc() {
+      //     const name = "Mozilla";
+      //     function displayName() {
+      //       console.log(name);
+      //     }
+      //     return displayName;
+      //   }
+      //   const myFunc = makeFunc();
+      //   myFunc();
+
+      function handleColor(color) {
+        return function () {
+          document.body.style.backgroundColor = `${color}`;
+          console.log(color);
+        };
+      }
+
+      console.log(document.getElementById("sky"));
+      //   .onclick =
+      //     handleColor("skyblue");
+      document.getElementsByClassName("orange").onclick = handleColor("orange");
+
+      const classButton = document.getElementsByClassName("orange");
+
+      console.log(classButton);
+    </script>
+  </body>
+</html>

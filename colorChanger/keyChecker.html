@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key checker</title>
+  </head>
+  <body>
+    <h1>Key checker</h1>
+  </body>
+  <script>
+    const div = document.createElement("div");
+    div.className = "keydetails";
+    div.id = `${Math.floor(Math.random() * 10000000 + 1)}`;
+    let text = document.createTextNode("This is a text node");
+    // div.appendChild(text);
+    // div.innerHTML = "This is a key checker ";
+    document.body.appendChild(div);
+    console.log(div);
+
+    const ul = document.createElement("ul");
+
+    ul.className = "ul";
+    ul.id = `${Math.floor(Math.random() * 10000000 + 1)}`;
+    const keydetails = document.querySelector(".keydetails");
+    keydetails.appendChild(ul);
+
+    document.body.addEventListener("keydown", (e) => {
+      const ulEl = document.querySelector(".ul");
+      const li = document.createElement("li");
+      ulEl.appendChild(li);
+      li.appendChild(document.createTextNode(`${e.key}, ${e.keyCode} `));
+
+      //   console.log(e.key);
+      console.log(e.keyCode);
+    });
+  </script>
+</html>
