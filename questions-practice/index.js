@@ -392,7 +392,7 @@ newArray.push(4);
 // newArray[0] = 55
 
 
-console.log(newArray);
+// console.log(newArray);
 // newArray.shift()
 // newArray.unshift(5)
 // newArray.splice(newArray.length - 1, 0, 55)
@@ -400,7 +400,7 @@ console.log(newArray);
 // const index = newArray.findIndex((a) => a < 3)
 // const find = newArray.find()
 // newArray.splice(newArray.length - 1, 0, 55)
-console.log(newArray);
+// console.log(newArray);
 // const sliced = newArray.slice(1, 4)
 // console.log(index)
 
@@ -429,19 +429,64 @@ myFavFruits.sort((a, b) => {
 })
 // myFavFruits[3] = 'berries'
 // console.log(myFavFruits)
-
 // for (num of newArray) {
 //     console.log(num)
 // }
 
 
-function print(num) {
+function printPattern(num) {
     for (let i = num; i > 0; i--) {
-        let str = ''
+        let str = ' '
         for (let j = num; j > num - i; j--) {
-            str += j
+            str = str + j
         }
         console.log(str)
     }
 }
-print(5)
+// printPattern(5)
+
+
+var isPalindrome = function (x) {
+    const str = String(x)
+    let reversedX = ''
+
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversedX = reversedX + str[i]
+    }
+
+    if (str === reversedX) {
+        return true
+    } else {
+        return false
+    }
+};
+
+// console.log(isPalindrome(121))
+
+
+
+
+var romanToInt = function (s = '') {
+    let newMap = new Map()
+    newMap.set("I", 1)
+    newMap.set("V", 5)
+    newMap.set("X", 10)
+    newMap.set("L", 50)
+    newMap.set("C", 100)
+    newMap.set("D", 500)
+    newMap.set("M", 1000)
+
+    let result = 0
+    let prevValue = 0
+    for (let i = s.length - 1; i >= 0; i--) {
+        let currentValue = Number(newMap.get(s[i]))
+        if (currentValue < prevValue) {
+            result -= currentValue
+        } else {
+            result += currentValue
+        }
+        prevValue = currentValue
+    }
+    return result
+};
+console.log(romanToInt('IV'))
